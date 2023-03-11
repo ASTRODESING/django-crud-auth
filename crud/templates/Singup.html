@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+    <h1>{{ error }}</h1>
+    <form class="card card-body" action="/Singup/" method="post">
+        {% csrf_token %}
+        <label for="name">Nombre:</label><br />
+        <input type="text" name="name" id="name" required maxlength="150">
+        <p>Ingresa tu nombre con un maximo de 150 caracteres, letras, digitos y @/_/-/+/- estan permitidos </p>
+        <br /><br />
+        <label for="email">Email:</label><br />
+        <input type="email" name="email" id="email" required>
+
+        <br /><br />
+        <label for="password">Contraseña:</label><br />
+        <input type="password" name="password" id="password" required>
+        <p>Ingresa una contraseña mayor a 8 caracteres y se procura que no sean solo numeros para una mayor seguridad
+        </p>
+
+        <br /><br />
+        <label for="password">Repetir Contraseña:</label><br />
+        <input type="password" name="2password" id="2password" required>
+        <p>Repite tu contraseña para que no la olvides mas adelante y estes seguro de tu eleccion</p>
+        <br /><br />
+        <input class="btn btn-primary" type="submit" value="Signup">
+
+    </form>
+    {% endblock%}
+</body>
+
+</html>

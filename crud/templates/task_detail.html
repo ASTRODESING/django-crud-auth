@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="card card-body" action="" method="post">
+
+
+<h1>{{ error }}</h1>
+{{form}}
+
+{% csrf_token %}
+<br>
+<button class="btn btn-primary">
+    Save
+</button>
+
+</form>
+
+<br>
+<form action="{% url 'completed_task' tasks.id %}" method="post">
+    {% csrf_token %}
+    <button class="btn btn-primary">
+        Completed
+    </button>
+</form>
+
+<br>
+<form action="{% url 'eliminar_task' tasks.id %}" method="post">
+    {% csrf_token %}
+    <button class="btn btn-primary">
+        Eliminar
+    </button>
+</form>
+
+
+{% endblock %}

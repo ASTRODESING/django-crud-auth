@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center display-3" >Tasks </h2>
+<ul class="list-group">
+    {% for tareas in tasks %}
+    <a class="list-group-item justify-content-between" href=" {% url 'tasks_details' tareas.id %}">
+
+            {% if tareas.important %}
+            <strong>{{tareas.title}}</strong>
+            {% else %}
+            <p>{{tareas.title}}</p>
+            {% endif %}
+            <li>
+                {{tareas.description}}
+            </li>
+            <br>
+
+    </a>
+
+    {%endfor%}
+</ul>
+{% endblock %}
